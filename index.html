@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home - School Fee Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .navbar-nav .nav-link {
+        position: relative;
+        color: white;
+        transition: color 0.3s ease;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: #ffe066;
+      }
+
+      .navbar-nav .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 10%;
+        width: 80%;
+        height: 2px;
+        background-color: #ffe066;
+        transform: scaleX(0);
+        transform-origin: center;
+      }
+
+      .navbar-nav .nav-link:hover::after {
+        transform: scaleX(1);
+      }
+    </style>
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg"
+      style="background: linear-gradient(to right, #1e3c72, #2a5298)"
+    >
+      <div class="container">
+        <a class="navbar-brand text-white fw-bold" href="index.html"
+          >School Fee Portal</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon bg-light"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="student-register.html"
+                >Register Student</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="student-search.html"
+                >Search Student</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="fee-pay.html">Pay Fee</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="fee-history.html"
+                >Fee History</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="admin-dashboard.html"
+                >Admin</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-light py-5 shadow-sm">
+      <div class="container text-center">
+        <h1 class="display-5 fw-bold">
+          Welcome to School Fee Management System
+        </h1>
+        <p class="lead text-muted">
+          Manage student registration, fee payments, and history all in one
+          place.
+        </p>
+        <a href="student-register.html" class="btn btn-primary btn-lg mt-3"
+          >Get Started</a
+        >
+      </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="py-5 bg-white">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <h5 class="card-title text-primary">Student Registration</h5>
+                <p class="card-text">
+                  Add new students with fee plans and admission details securely
+                  and easily.
+                </p>
+                <a href="student-register.html" class="btn btn-outline-primary"
+                  >Register</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <h5 class="card-title text-success">Record Fee Payment</h5>
+                <p class="card-text">
+                  Record, calculate balance, and track payments with SMS alerts
+                  and receipts.
+                </p>
+                <a href="fee-pay.html" class="btn btn-outline-success"
+                  >Pay Fee</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <h5 class="card-title text-info">Payment History</h5>
+                <p class="card-text">
+                  Check past fee transactions and upcoming due dates for each
+                  student.
+                </p>
+                <a href="fee-history.html" class="btn btn-outline-info"
+                  >View History</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center mt-auto py-3 bg-light border-top fixed-bottom">
+      <p class="mb-0 text-muted">
+        &copy; 2025 School Fee Management System. All rights reserved.
+      </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
