@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Search Student</title>
 
     <link
@@ -18,11 +19,9 @@
         color: white;
         transition: color 0.3s ease;
       }
-
       .navbar-nav .nav-link:hover {
         color: #ffe066;
       }
-
       .navbar-nav .nav-link::after {
         content: "";
         position: absolute;
@@ -32,15 +31,23 @@
         height: 2px;
         background-color: #ffe066;
         transform: scaleX(0);
+        transition: transform 0.3s ease;
         transform-origin: center;
       }
-
       .navbar-nav .nav-link:hover::after {
         transform: scaleX(1);
       }
-
       body {
         padding-top: 70px;
+      }
+      
+      .table-responsive {
+        overflow-x: auto;
+      }
+      @media (max-width: 576px) {
+        #searchInput {
+          margin-bottom: 10px;
+        }
       }
     </style>
 
@@ -53,14 +60,17 @@
       style="background: linear-gradient(to right, #1e3c72, #2a5298)"
     >
       <div class="container">
-        <a class="navbar-brand text-white fw-bold" href="index.html"
-          >School Fee Portal</a
-        >
+        <a class="navbar-brand text-white fw-bold" href="index.html">
+          School Fee Portal
+        </a>
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon bg-light"></span>
         </button>
@@ -70,64 +80,73 @@
               <a class="nav-link text-white" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="student-register.html"
-                >Register Student</a
-              >
+              <a class="nav-link text-white" href="student-register.html">
+                Register Student
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="student-search.html"
-                >Search Student</a
-              >
+              <a class="nav-link text-white" href="student-search.html">
+                Search Student
+              </a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-white" href="fee-pay.html">Pay Fee</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="fee-history.html"
-                >Fee History</a
-              >
+              <a class="nav-link text-white" href="fee-history.html">
+                Fee History
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="admin-dashboard.html"
-                >Admin</a
-              >
+              <a class="nav-link text-white" href="admin-dashboard.html">
+                Admin
+              </a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
+    <!-- Search Section -->
     <div class="container mt-5">
       <h2 class="text-center text-primary">Search Student</h2>
       <div class="row justify-content-center">
-        <div class="col-md-6 mb-4">
+        <div class="col-lg-6 col-md-8 col-sm-10 mb-4">
           <input
             type="text"
             id="searchInput"
             class="form-control"
             placeholder="Enter mobile number, Student Id, First or Last Name to search"
           />
-          <button onclick="searchStudent()" class="btn btn-primary mt-3 w-100">
+          <button
+            onclick="searchStudent()"
+            class="btn btn-primary mt-3 w-100"
+          >
             Search
           </button>
         </div>
       </div>
-      <table
-        id="resultTable"
-        class="display table table-bordered table-hover shadow-sm"
-      >
-        <thead class="table-light">
-          <tr>
-            <th>Student ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Mobile</th>
-            <th>Fee Plan</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+
+      <!-- Responsive Table -->
+      <div class="table-responsive">
+        <table
+          id="resultTable"
+          class="display table table-bordered table-hover shadow-sm w-100"
+        >
+          <thead class="table-light">
+            <tr>
+              <th>Student ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Mobile</th>
+              <th>Fee Plan</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </div>
+
     <!-- Footer -->
     <footer
       class="text-center mt-auto mt-5 py-3 big-light border-top"
