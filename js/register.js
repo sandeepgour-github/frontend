@@ -43,7 +43,9 @@ document
           "Success",
           "Student Registered with ID: " + data.studentId,
           "success"
-        );
+        ).then(()=>
+          {window.location.href="student-search.html";
+          });
         document.getElementById("registerForm").reset();
       })
       .catch((err) => {
