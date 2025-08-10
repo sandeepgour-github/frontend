@@ -3,12 +3,15 @@ if (!token) {
   window.location.href = "admin-login.html";
 }
 function loadAllStudents() {
-  fetch("http://localhost:8081/api/students/search", {
-    method: "GET",
-    headers: {
-      Authorization: "Bearer " + token,
-    },
-  })
+  fetch(
+    "https://schoolfeemanagementapp-production.up.railway.app/api/students/search",
+    {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    }
+  )
     .then((res) => {
       if (!res.ok) {
         return res.json().then((error) => {

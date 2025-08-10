@@ -15,12 +15,16 @@ function searchStudent() {
     return;
   }
 
-  fetch("http://localhost:8081/api/students/search/" + input, {
-    method: "GET",
-    headers: {
-      Authorization: "Bearer " + token, // ✅ token added
-    },
-  })
+  fetch(
+    "https://schoolfeemanagementapp-production.up.railway.app/api/students/search/" +
+      input,
+    {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token, // ✅ token added
+      },
+    }
+  )
     .then((res) => {
       if (!res.ok) {
         return res.json().then((error) => {
