@@ -98,7 +98,7 @@
               console.log(data.token);
               document.getElementById("loginForm").reset();
               Swal.fire("Success", "Login successful!", "success").then(() => {
-                window.location.href = "index.html"; // or your protected page
+                window.location.href = "index.html"; // protected page
               });
             })
             .catch((err) => {
