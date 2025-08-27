@@ -15,16 +15,12 @@ function searchStudent() {
     return;
   }
 
-  fetch(
-    "https://schoolfeemanagementapp-production.up.railway.app/api/students/search/" +
-      input,
-    {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token, // ✅ token added
-      },
-    }
-  )
+  fetch("http://localhost:8081/api/students/search/" + input, {
+    method: "GET",
+    headers: {
+      Authorization: "Bearer " + token, // token added
+    },
+  })
     .then((res) => {
       if (!res.ok) {
         return res.json().then((error) => {
@@ -42,7 +38,16 @@ function searchStudent() {
         return;
       }
 
-      data.forEach((student) => {
+      const activeStudents = data.filter(
+        (student) => student.status && student.status.toLowerCase() === "active"
+      );
+
+      if (activeStudents.length === 0) {
+        Swal.fire("Not Found", "No active student found", "warning");
+        return;
+      }
+
+      activeStudents.forEach((student) => {
         table.row
           .add([
             student.studentId,
@@ -50,6 +55,7 @@ function searchStudent() {
             student.lastName,
             student.mobileNumber,
             student.feePlan,
+            student.status,
           ])
           .draw(false);
       });

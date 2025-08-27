@@ -73,14 +73,11 @@
             role: "ADMIN",
           };
 
-          fetch(
-            "https://schoolfeemanagementapp-production.up.railway.app/auth/register",
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(user),
-            }
-          )
+          fetch("http://localhost:8081/auth/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(user),
+          })
             .then((res) => {
               if (!res.ok)
                 return res.json().then((err) => {

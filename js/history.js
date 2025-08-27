@@ -10,16 +10,12 @@ function loadHistory() {
     return;
   }
 
-  fetch(
-    "https://schoolfeemanagementapp-production.up.railway.app/api/fees/history/" +
-      studentId,
-    {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token, // ✅ token added here
-      },
-    }
-  )
+  fetch("http://localhost:8081/api/fees/history/" + studentId, {
+    method: "GET",
+    headers: {
+      Authorization: "Bearer " + token, // ✅ token added here
+    },
+  })
     .then((res) => {
       if (!res.ok) {
         return res.json().then((error) => {

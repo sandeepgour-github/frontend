@@ -81,6 +81,11 @@
                 >Fee History</a
               >
             </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="student-delete.html"
+                >Delete Student</a
+              >
+            </li>
           </ul>
         </div>
       </div>
@@ -116,7 +121,6 @@
             </div>
           </a>
         </div>
-
         <div class="col-md-4">
           <a href="fee-history.html" class="text-decoration-none">
             <div class="card shadow dashboard-card text-center p-4">
@@ -130,6 +134,14 @@
             <div class="card shadow dashboard-card text-center p-4">
               <h5 class="text-success">👥 View All Students</h5>
               <p>See all registered student details.</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a href="student-delete.html" class="text-decoration-none">
+            <div class="card shadow dashboard-card text-center p-4">
+              <h5 class="text-danger">🗑 Delete Student</h5>
+              <p>Remove student records permanently.</p>
             </div>
           </a>
         </div>
@@ -148,7 +160,7 @@
       const token = localStorage.getItem("token");
 
       if (!token) {
-        window.location.href = "admin-login.html"; // fixed incorrect redirect syntax
+        window.location.href = "admin-login.html";
       }
 
       // Append logout button dynamically inside nav

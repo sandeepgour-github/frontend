@@ -16,18 +16,15 @@ document
       totalFee: parseFloat(document.getElementById("totalFee").value),
     };
 
-    fetch(
-      "https://schoolfeemanagementapp-production.up.railway.app/api/students/register",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-        body: JSON.stringify(student),
-      }
-    )
+    fetch("http://localhost:8081/api/students/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(student),
+    })
       .then((res) => {
         if (!res.ok) {
           return res.json().then((errors) => {

@@ -10,15 +10,12 @@ document.getElementById("payForm").addEventListener("submit", function (e) {
   const studentId = document.getElementById("studentId").value.trim();
   const amount = parseFloat(document.getElementById("amount").value.trim());
 
-  fetch(
-    `https://schoolfeemanagementapp-production.up.railway.app/api/fees/${studentId}?amount=${amount}`,
-    {
-      method: "POST",
-      headers: {
-        Authorization: "Bearer " + token, // ✅ Token header add
-      },
-    }
-  )
+  fetch(`http://localhost:8081/api/fees/${studentId}?amount=${amount}`, {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  })
     .then((res) => {
       if (!res.ok) {
         return res.json().then((errorData) => {
@@ -42,10 +39,10 @@ document.getElementById("payForm").addEventListener("submit", function (e) {
         document.getElementById("payForm").after(existingBtn);
       }
 
-      // ✅ Set button click to fetch receipt with token
+      //Set button click to fetch receipt with token
       existingBtn.onclick = function () {
         fetch(
-          `https://schoolfeemanagementapp-production.up.railway.app/api/receipts/${studentId}_${data.id}.pdf`,
+          `http://localhost:8081/api/receipts/${studentId}_${data.id}.pdf`,
           {
             method: "GET",
             headers: {
