@@ -160,10 +160,16 @@
       const token = localStorage.getItem("token");
 
       if (!token) {
+<<<<<<< HEAD
         window.location.href = "admin-login.html";
       }
 
       // Append logout button dynamically inside nav
+=======
+        window.location.href = "admin-login.html"; // fixed incorrect redirect syntax
+      }
+
+>>>>>>> 6c9a33ef9fc307c7c5d0812c16b24e7779c9050e
       const navBar = document.querySelector(".navbar-nav");
       const logoutBtn = document.createElement("li");
       logoutBtn.className = "nav-item";
@@ -182,7 +188,10 @@
       });
     </script>
 
+<<<<<<< HEAD
     <!-- Bootstrap JS -->
+=======
+>>>>>>> 6c9a33ef9fc307c7c5d0812c16b24e7779c9050e
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

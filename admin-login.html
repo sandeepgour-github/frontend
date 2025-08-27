@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Admin Login</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -15,21 +16,39 @@
       }
       .card {
         margin-top: 80px;
+        border-radius: 12px;
+      }
+      @media (max-width: 576px) {
+        .card {
+          margin-top: 40px;
+          padding: 1rem;
+        }
+      }
+      input {
+        font-size: 1rem;
+        padding: 0.75rem;
+      }
+      button {
+        font-size: 1rem;
+        padding: 0.75rem;
       }
     </style>
   </head>
   <body class="d-flex flex-column min-vh-100">
-    <nav class="navbar navbar-light bg-light px-3">
-      <a class="navbar-brand fw-bold text-primary" href="index.html"
-        >School Fee Portal</a
-      >
+    <!-- Navbar -->
+    <nav class="navbar navbar-light bg-light px-3 shadow-sm">
+      <a class="navbar-brand fw-bold text-primary" href="index.html">
+        School Fee Portal
+      </a>
     </nav>
+
+    <!-- Main -->
     <main class="flex-fill">
       <div class="container mt-5">
         <div class="row justify-content-center">
-          <div class="col-md-5">
-            <div class="card p-4">
-              <h4 class="text-center mb-4">Admin Login</h4>
+          <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+            <div class="card p-4 shadow">
+              <h4 class="text-center mb-4 text-dark">Admin Login</h4>
               <form id="loginForm">
                 <input
                   type="email"
@@ -48,38 +67,45 @@
                 <button class="btn btn-success w-100">Login</button>
               </form>
               <div class="text-center mt-3">
-                <a href="admin-register.html"
-                  >Don't have an account? Register</a
-                >
+                <a href="admin-register.html">Don't have an account? Register</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </main>
+
+    <!-- Footer -->
     <footer
-      class="text-center py-3 text-muted border-top"
+      class="text-center py-3 text-muted border-top mt-auto"
       style="background-color: #f0f4f8"
     >
       &copy; 2025 School Fee Management System. All rights reserved.
     </footer>
+
+    <!-- Script -->
     <script>
-      document
-        .getElementById("loginForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
+      document.getElementById("loginForm").addEventListener("submit", function (e) {
+        e.preventDefault();
 
-          const user = {
-            email: document.getElementById("email").value.trim(),
-            password: document.getElementById("password").value.trim(),
-          };
+        const user = {
+          email: document.getElementById("email").value.trim(),
+          password: document.getElementById("password").value.trim(),
+        };
 
+<<<<<<< HEAD
           fetch("http://localhost:8081/auth/login", {
+=======
+        fetch(
+          "https://schoolfeemanagementapp-production.up.railway.app/auth/login",
+          {
+>>>>>>> 6c9a33ef9fc307c7c5d0812c16b24e7779c9050e
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify(user),
+<<<<<<< HEAD
           })
             .then((res) => {
               if (!res.ok) {
@@ -96,12 +122,29 @@
               document.getElementById("loginForm").reset();
               Swal.fire("Success", "Login successful!", "success").then(() => {
                 window.location.href = "index.html"; // protected page
+=======
+          }
+        )
+          .then((res) => {
+            if (!res.ok) {
+              return res.json().then((err) => {
+                throw new Error(err.message || "Login failed");
+>>>>>>> 6c9a33ef9fc307c7c5d0812c16b24e7779c9050e
               });
-            })
-            .catch((err) => {
-              Swal.fire("Login Failed", err.message, "error");
+            }
+            return res.json();
+          })
+          .then((data) => {
+            localStorage.setItem("token", data.token);
+            document.getElementById("loginForm").reset();
+            Swal.fire("Success", "Login successful!", "success").then(() => {
+              window.location.href = "index.html";
             });
-        });
+          })
+          .catch((err) => {
+            Swal.fire("Login Failed", err.message, "error");
+          });
+      });
     </script>
   </body>
 </html>

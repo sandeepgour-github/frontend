@@ -16,7 +16,7 @@ document
       totalFee: parseFloat(document.getElementById("totalFee").value),
     };
 
-    fetch("http://localhost:8081/api/students/register", {
+    fetch("https://schoolfeemanagementapp-production.up.railway.app/api/students/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +43,9 @@ document
           "Success",
           "Student Registered with ID: " + data.studentId,
           "success"
-        );
+        ).then(()=>
+          {window.location.href="student-search.html";
+          });
         document.getElementById("registerForm").reset();
       })
       .catch((err) => {

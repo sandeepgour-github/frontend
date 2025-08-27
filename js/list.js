@@ -5,7 +5,7 @@ if (!token) {
 
 // ✅ Load all students but show only ACTIVE
 function loadAllStudents() {
-  fetch("http://localhost:8081/api/students/search", {
+  fetch("https://schoolfeemanagementapp-production.up.railway.app/api/students/search", {
     method: "GET",
     headers: {
       Authorization: "Bearer " + token,

@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fee History - School Fee Management</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -17,11 +18,9 @@
         color: white;
         transition: color 0.3s ease;
       }
-
       .navbar-nav .nav-link:hover {
         color: #ffe066;
       }
-
       .navbar-nav .nav-link::after {
         content: "";
         position: absolute;
@@ -32,16 +31,36 @@
         background-color: #ffe066;
         transform: scaleX(0);
         transform-origin: center;
+        transition: transform 0.3s ease;
       }
-
       .navbar-nav .nav-link:hover::after {
         transform: scaleX(1);
       }
       body {
         padding-top: 70px;
       }
+      @media (max-width: 576px) {
+        h2 {
+          font-size: 1.5rem;
+        }
+        #studentId {
+          font-size: 0.9rem;
+        }
+        button {
+          font-size: 0.9rem;
+        }
+      }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      // Redirect to login if token not found
+      (function () {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          window.location.href = "login.html";
+        }
+      })();
+    </script>
   </head>
   <body class="d-flex flex-column min-vh-100">
     <!-- Navbar -->
@@ -49,7 +68,7 @@
       class="navbar navbar-expand-lg fixed-top"
       style="background: linear-gradient(to right, #1e3c72, #2a5298)"
     >
-      <div class="container">
+      <div class="container-fluid">
         <a class="navbar-brand text-white fw-bold" href="index.html"
           >School Fee Portal</a
         >
@@ -96,38 +115,46 @@
 
     <!-- Fee History -->
     <div class="container mt-5">
-      <h2 class="text-center text-primary">Student Fee History</h2>
+      <h2 class="text-center text-primary mb-4">Student Fee History</h2>
       <div class="row justify-content-center mb-4">
-        <div class="col-md-6">
+        <div class="col-12 col-sm-8 col-md-6">
           <input
             type="text"
             id="studentId"
             class="form-control"
             placeholder="Enter Student ID (e.g., STD0001)"
           />
-          <button onclick="loadHistory()" class="btn btn-primary w-100 mt-3">
+          <button
+            onclick="loadHistory()"
+            class="btn btn-primary w-100 mt-3"
+          >
             Load History
           </button>
         </div>
       </div>
 
-      <table id="historyTable" class="display table table-bordered shadow-sm">
-        <thead class="table-light">
-          <tr>
-            <th>Payment Date</th>
-            <th>Amount Paid</th>
-            <th>Total Paid</th>
-            <th>Balance</th>
-            <th>Next Due</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <div class="table-responsive">
+        <table
+          id="historyTable"
+          class="display table table-bordered shadow-sm w-100"
+        >
+          <thead class="table-light">
+            <tr>
+              <th>Payment Date</th>
+              <th>Amount Paid</th>
+              <th>Total Paid</th>
+              <th>Balance</th>
+              <th>Next Due</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </div>
 
     <!-- Footer -->
     <footer
-      class="text-center mt-5 py-3 mt-auto big-light border-top"
+      class="text-center mt-5 py-3 mt-auto"
       style="background-color: #f0f4f8; border-top: 1px solid #ccc"
     >
       <p class="mb-0 text-muted">
