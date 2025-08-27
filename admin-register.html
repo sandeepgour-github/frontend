@@ -85,15 +85,16 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      document.getElementById("registerForm").addEventListener("submit", function (e) {
-        e.preventDefault();
-        const user = {
-          email: document.getElementById("email").value.trim(),
-          password: document.getElementById("password").value.trim(),
-          role: "ADMIN",
-        };
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const user = {
+            email: document.getElementById("email").value.trim(),
+            password: document.getElementById("password").value.trim(),
+            role: "ADMIN",
+          };
 
-<<<<<<< HEAD
           fetch("http://localhost:8081/auth/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -118,35 +119,6 @@
               Swal.fire("Error", err.message, "error");
             });
         });
-=======
-        fetch(
-          "https://schoolfeemanagementapp-production.up.railway.app/auth/register",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(user),
-          }
-        )
-          .then((res) => {
-            if (!res.ok)
-              return res.json().then((err) => {
-                throw new Error(err.message || "Failed");
-              });
-            return res.json();
-          })
-          .then(() => {
-            Swal.fire(
-              "Registered!",
-              "Admin account created successfully",
-              "success"
-            );
-            document.getElementById("registerForm").reset();
-          })
-          .catch((err) => {
-            Swal.fire("Error", err.message, "error");
-          });
-      });
->>>>>>> 6c9a33ef9fc307c7c5d0812c16b24e7779c9050e
     </script>
   </body>
 </html>
