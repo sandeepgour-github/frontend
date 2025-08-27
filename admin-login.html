@@ -67,7 +67,9 @@
                 <button class="btn btn-success w-100">Login</button>
               </form>
               <div class="text-center mt-3">
-                <a href="admin-register.html">Don't have an account? Register</a>
+                <a href="admin-register.html"
+                  >Don't have an account? Register</a
+                >
               </div>
             </div>
           </div>
@@ -85,27 +87,22 @@
 
     <!-- Script -->
     <script>
-      document.getElementById("loginForm").addEventListener("submit", function (e) {
-        e.preventDefault();
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
 
-        const user = {
-          email: document.getElementById("email").value.trim(),
-          password: document.getElementById("password").value.trim(),
-        };
+          const user = {
+            email: document.getElementById("email").value.trim(),
+            password: document.getElementById("password").value.trim(),
+          };
 
-<<<<<<< HEAD
           fetch("http://localhost:8081/auth/login", {
-=======
-        fetch(
-          "https://schoolfeemanagementapp-production.up.railway.app/auth/login",
-          {
->>>>>>> 6c9a33ef9fc307c7c5d0812c16b24e7779c9050e
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify(user),
-<<<<<<< HEAD
           })
             .then((res) => {
               if (!res.ok) {
@@ -118,33 +115,16 @@
             .then((data) => {
               // Store token in localStorage
               localStorage.setItem("token", data.token);
-              console.log(data.token);
+              console.log(data.token); // Debugging ke liye rakho
               document.getElementById("loginForm").reset();
               Swal.fire("Success", "Login successful!", "success").then(() => {
                 window.location.href = "index.html"; // protected page
-=======
-          }
-        )
-          .then((res) => {
-            if (!res.ok) {
-              return res.json().then((err) => {
-                throw new Error(err.message || "Login failed");
->>>>>>> 6c9a33ef9fc307c7c5d0812c16b24e7779c9050e
               });
-            }
-            return res.json();
-          })
-          .then((data) => {
-            localStorage.setItem("token", data.token);
-            document.getElementById("loginForm").reset();
-            Swal.fire("Success", "Login successful!", "success").then(() => {
-              window.location.href = "index.html";
+            })
+            .catch((err) => {
+              Swal.fire("Login Failed", err.message, "error");
             });
-          })
-          .catch((err) => {
-            Swal.fire("Login Failed", err.message, "error");
-          });
-      });
+        });
     </script>
   </body>
 </html>
