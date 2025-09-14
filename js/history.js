@@ -10,10 +10,10 @@ function loadHistory() {
     return;
   }
 
-  fetch("http://localhost:8081/api/fees/history/" + studentId, {
+  fetch("http://localhost:8082/api/fees/history/" + studentId, {
     method: "GET",
     headers: {
-      Authorization: "Bearer " + token, // ✅ token added here
+      Authorization: "Bearer " + token, 
     },
   })
     .then((res) => {

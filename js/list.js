@@ -5,7 +5,7 @@ if (!token) {
 
 // ✅ Load all students but show only ACTIVE
 function loadAllStudents() {
-  fetch("http://localhost:8081/api/students/search", {
+  fetch("http://localhost:8082/api/students/search", {
     method: "GET",
     headers: {
       Authorization: "Bearer " + token,
@@ -60,7 +60,7 @@ function deleteStudent(studentId) {
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`http://localhost:8081/api/students/delete/${studentId}`, {
+      fetch(`http://localhost:8082/api/students/delete/${studentId}`, {
         method: "DELETE",
         headers: {
           Authorization: "Bearer " + token,

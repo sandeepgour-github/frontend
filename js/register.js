@@ -16,7 +16,7 @@ document
       totalFee: parseFloat(document.getElementById("totalFee").value),
     };
 
-    fetch("http://localhost:8081/api/students/register", {
+    fetch("http://localhost:8082/api/students/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

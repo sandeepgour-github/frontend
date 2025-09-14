@@ -15,7 +15,7 @@ function searchStudent() {
     return;
   }
 
-  fetch("http://localhost:8081/api/students/search/" + input, {
+  fetch("http://localhost:8082/api/students/search/" + input, {
     method: "GET",
     headers: {
       Authorization: "Bearer " + token, // token added
