@@ -3,7 +3,7 @@ if (!token) {
   window.location.href = "admin-login.html";
 }
 
-// ✅ Load all students but show only ACTIVE
+//Load all students but show only ACTIVE
 function loadAllStudents() {
   fetch("http://localhost:8082/api/students/search", {
     method: "GET",
@@ -24,7 +24,7 @@ function loadAllStudents() {
       tbody.innerHTML = "";
 
       students
-        .filter((student) => student.status === "ACTIVE") // ✅ only ACTIVE students
+        .filter((student) => student.status === "ACTIVE")
         .forEach((student) => {
           const row = document.createElement("tr");
           row.setAttribute("id", `student-${student.studentId}`);
@@ -48,7 +48,7 @@ function loadAllStudents() {
     });
 }
 
-// ✅ Delete student → backend sets status=DELETED → remove row instantly
+//Delete student → backend sets status=DELETED → remove row instantly
 function deleteStudent(studentId) {
   Swal.fire({
     title: "Are you sure?",
@@ -69,7 +69,7 @@ function deleteStudent(studentId) {
         .then((res) => {
           if (!res.ok) throw new Error("Failed to delete");
 
-          // ✅ Instantly remove row from table
+          //Instantly remove row from table
           const row = document.getElementById(`student-${studentId}`);
           if (row) row.remove();
 
