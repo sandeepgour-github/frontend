@@ -18,7 +18,7 @@ document.getElementById("deleteForm").addEventListener("submit", function (e) {
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`http://localhost:8082/api/students/delete/${id}`, {
+      fetch(`https://schoolfeemanagementapp-production.up.railway.app/students/delete/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: "Bearer " + token, //token header added
