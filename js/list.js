@@ -5,7 +5,7 @@ if (!token) {
 
 //Load all students but show only ACTIVE
 function loadAllStudents() {
-  fetch("http://localhost:8082/api/students/search", {
+  fetch("https://schoolfeemanagementapp-production.up.railway.app/api/students/search", {
     method: "GET",
     headers: {
       Authorization: "Bearer " + token,
@@ -60,7 +60,7 @@ function deleteStudent(studentId) {
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`http://localhost:8082/api/students/delete/${studentId}`, {
+      fetch(`https://schoolfeemanagementapp-production.up.railway.app/api/students/delete/${studentId}`, {
         method: "DELETE",
         headers: {
           Authorization: "Bearer " + token,
@@ -82,5 +82,5 @@ function deleteStudent(studentId) {
   });
 }
 
-// ✅ Call function on page load
+//Call function on page load
 document.addEventListener("DOMContentLoaded", loadAllStudents);
