@@ -10,7 +10,7 @@ function loadHistory() {
     return;
   }
 
-  fetch("https://schoolfeemanagementapp-production.up.railway.app/api/fees/history/" + studentId, {
+  fetch("https://schoolfeemanagementapp.onrender.com/api/fees/history/" + studentId, {
     method: "GET",
     headers: {
       Authorization: "Bearer " + token, 
