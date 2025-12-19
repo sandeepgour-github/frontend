@@ -60,7 +60,7 @@ function deleteStudent(studentId) {
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`https://schoolfeemanagementapp-production.up.railway.app/api/students/delete/${studentId}`, {
+      fetch(`https://schoolfeemanagementapp.onrender.com/api/students/delete/${studentId}`, {
         method: "DELETE",
         headers: {
           Authorization: "Bearer " + token,
