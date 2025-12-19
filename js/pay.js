@@ -42,7 +42,7 @@ document.getElementById("payForm").addEventListener("submit", function (e) {
       //Set button click to fetch receipt with token
       existingBtn.onclick = function () {
         fetch(
-          `http://localhost:8082/api/receipts/${studentId}_${data.id}.pdf`,
+          `https://schoolfeemanagementapp.onrender.com/api/receipts/${studentId}_${data.id}.pdf`,
           {
             method: "GET",
             headers: {
