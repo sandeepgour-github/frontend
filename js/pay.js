@@ -10,7 +10,7 @@ document.getElementById("payForm").addEventListener("submit", function (e) {
   const studentId = document.getElementById("studentId").value.trim();
   const amount = parseFloat(document.getElementById("amount").value.trim());
 
-  fetch(`https://schoolfeemanagementapp-production.up.railway.app/api/fees/${studentId}?amount=${amount}`, {
+  fetch(`https://schoolfeemanagementapp.onrender.com/api/fees/${studentId}?amount=${amount}`, {
     method: "POST",
     headers: {
       Authorization: "Bearer " + token,
