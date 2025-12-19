@@ -18,7 +18,7 @@ document.getElementById("deleteForm").addEventListener("submit", function (e) {
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`https://schoolfeemanagementapp.onrender.com/students/delete/${id}`, {
+      fetch(`https://schoolfeemanagementapp.onrender.com/api/students/delete/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: "Bearer " + token, //token header added
